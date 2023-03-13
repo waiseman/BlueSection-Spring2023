@@ -1,0 +1,28 @@
+﻿@page "/"
+@using BlazorWASApp.Model
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app in SJ lab if UsKT
+
+<TestComp Student="@student"  />
+
+<TestComp Student="@student"  />
+
+
+
+
+
+@code {
+    Student student = new Student()
+        {
+            Id = 2,
+            Name="Zubair Mobile",
+            RollNumber="024"
+            
+    };
+
+
+}

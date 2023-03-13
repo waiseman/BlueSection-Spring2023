@@ -1,0 +1,18 @@
+﻿@using BlazorWASApp.Model
+
+<h3>Student Component</h3>
+
+<h2 class="bg-warning" >Student ID : @Student.Id</h2>
+<input class="form-control" type="text" value="@Student.Name" />
+<input class="form-control" type="text" value="@Student.RollNumber" />
+
+
+
+@code {
+    
+    [Parameter]
+    public Student Student { get; set; }
+
+
+
+}
