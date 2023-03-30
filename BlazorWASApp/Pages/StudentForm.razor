@@ -1,0 +1,60 @@
+﻿@page "/AddStudent"
+@using BlazorWASApp.Model
+
+<h3>Here is StudentForm</h3>
+
+<EditForm Model="@student" OnValidSubmit="@HandleOnSubmit">
+    <DataAnnotationsValidator />
+    
+    <ValidationSummary/>
+    
+    <p>
+        <label>
+            Student Id :
+            <InputNumber @bind-Value="student.Id" />
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Student  Name :
+            <InputText @bind-Value="student.Name" />
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Student  RollNumber :
+            <InputText @bind-Value="student.RollNumber" />
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Student  DOB :
+            <InputDate @bind-Value="student.DOB" />
+        </label>
+    </p>
+
+
+    <button type="submit">Submit</button>
+
+
+
+</EditForm>
+<TestComp Student="@student"  />
+
+
+@code {
+    Student student = new Student()
+        {
+            DOB = DateTime.Now
+    };
+
+    void HandleOnSubmit()
+    {
+        student.Id++;
+        //Process information and send to server
+    }
+
+}
