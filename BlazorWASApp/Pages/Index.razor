@@ -7,10 +7,17 @@
 
 Welcome to your new app in SJ lab if UsKT
 
-<TestComp Student="@student"  />
 
-<TestComp Student="@student"  />
+<h1>Data From parent Component</h1> 
+<h2 class="bg-warning" >Student ID : @student.Id</h2>
+<input class="form-control" type="text" value="@student.Name" />
+<input class="form-control" type="text" value="@student.RollNumber" />
 
+<h1>Data from Child Component</h1>
+
+<TestComp Student="@student"  OnClickCallback="ParentMessage"  />
+
+@message
 
 
 
@@ -19,7 +26,16 @@ Welcome to your new app in SJ lab if UsKT
     Student student = new Student()
         {
             Id = 2,
-            Name="Zubair Mobile",
+            Name="Zubair Mobile test",
             RollNumber="024"
         };
+    public string message { get; set; } = "Message from Parent";
+
+
+    private void ParentMessage(string msg)
+    {
+
+        message = msg;
+    }
+
 }

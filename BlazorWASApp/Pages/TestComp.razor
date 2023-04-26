@@ -6,11 +6,28 @@
 <input class="form-control" type="text" value="@Student.Name" />
 <input class="form-control" type="text" value="@Student.RollNumber" />
 
+<button onclick=@ChangeMessage>
+    Change Value
+</button>
 
 
 @code {
-    
+
     [Parameter]
     public Student Student { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnClickCallback { get; set; }
+
+
+    private void ChangeMessage()
+    {
+       
+        OnClickCallback.InvokeAsync("Message From Child");
+
+         Student.Name = "Name Changed from Child";
+
+    }
+
 
 }
